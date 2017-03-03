@@ -34,14 +34,9 @@
     if (self)
     {
         CGRect bounds = [self bounds];
-        turtle = [[Turtle alloc] initWithFrame:CGRectMake(50, bounds.size.height/2, 20, 20)];
-        UIGraphicsBeginImageContext(turtle.frame.size);
-        [[UIImage imageNamed:@"brick.png"] drawInRect:turtle.frame];
-        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        turtle.backgroundColor = [UIColor colorWithPatternImage:image];
-        //[turtle setBackgroundColor:[UIColor colorWithRed:153.0/255.0 green:254.0/255.0 blue:150.0/255.0 alpha:0.6]];
-        [turtle setDy:1];
+        turtle = [[Turtle alloc] initWithFrame:CGRectMake(50, bounds.size.height/2, 30 , 30)];        
+        [turtle setImage:[UIImage imageNamed:@"turtle.jpg"]];
+        [turtle setDy:2];
         [self addSubview:turtle];
         [turtle setDx:2];
         [turtle setJump:0];
@@ -70,12 +65,7 @@
     bricks = [[NSMutableArray alloc] init];
     for(int i =0; i < 2; i++){
     Brick *b = [[Brick alloc] initWithFrame:CGRectMake(0, 0, 20,(int)(bounds.size.width * .25))];
-    UIGraphicsBeginImageContext(b.frame.size);
-    [[UIImage imageNamed:@"brick.png"] drawInRect:b.frame];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    b.backgroundColor = [UIColor colorWithPatternImage:image];
-    //[b setBackgroundColor:[UIColor colorWithRed:153.0/255.0 green:254.0/255.0 blue:0/255.0 alpha:1.0]];
+    [b setImage:[UIImage imageNamed:@"brick.png"]];
     [self addSubview:b];
     [b setCenter:CGPointMake((rand() % (int)(bounds.size.width * .5)+(bounds.size.width * .3)), rand() % (int)(bounds.size.height * .65))];
     //while([self isOverlapping:b])
@@ -91,13 +81,7 @@
     _coins = [[NSMutableArray alloc] init];
     for(int i =0; i < 5; i++){
         Coin *c = [[Coin alloc] initWithFrame:CGRectMake(0, 0,20, 20)];
-        UIGraphicsBeginImageContext(c.frame.size);
-        [[UIImage imageNamed:@"coin.jpg"] drawInRect:c.frame];
-        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        c.backgroundColor = [UIColor colorWithPatternImage:image];
-        //c.backgroundColor = [UIColor yellowColor];
-        //[b setBackgroundColor:[UIColor colorWithRed:153.0/255.0 green:254.0/255.0 blue:0/255.0 alpha:1.0]];
+        [c setImage:[UIImage imageNamed:@"coin.jpg"]];
         [self addSubview:c];
         [c setCenter:CGPointMake(rand() % (int)(bounds.size.width), rand() % (int)(bounds.size.height))];
         //while([self isOverlapping:b])
@@ -118,17 +102,17 @@
     //[turtle setDy:[turtle dy] - .3];
     p.y += [turtle dy];
     
-    if(p.x > [self bounds].size.width){
+    if(p.x + f.size.width/2 > [self bounds].size.width){
         p.x -=  [self bounds].size.width;
         [self setup];
         _currentScore += 100;
     }
     
-    if(p.y > [self bounds].size.height - 10){
-        p.y = [self bounds].size.height - 10 ;
+    if(p.y > [self bounds].size.height - f.size.height/2){
+        p.y = [self bounds].size.height - f.size.height/2 ;
     }
-    if(p.y < 10){
-        p.y = 10;
+    if(p.y < f.size.height/2){
+        p.y = f.size.height/2;
     }
     
     for (int i=0; i < [_coins count]; i++)

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Coin : UIView
+@interface Coin : UIImageView
 
 @property (nonatomic) BOOL collected;
 

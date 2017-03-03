@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Brick : UIView
+@interface Brick : UIImageView
 
 @end

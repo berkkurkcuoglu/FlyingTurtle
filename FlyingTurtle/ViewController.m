@@ -33,7 +33,7 @@
 }
 
 - (IBAction)tapped:(id)sender {
-    _gameView.turtle.jump = [_gameView bounds].size.height/10;
+    _gameView.turtle.jump = [_gameView bounds].size.height/8;
 }
 
 - (IBAction)backed:(id)sender {
@@ -42,7 +42,7 @@
 
 -(void)gameOver
 {
-    NSLog(@"Game over");
+    NSLog(@"Game over");    
 }
 
 @end

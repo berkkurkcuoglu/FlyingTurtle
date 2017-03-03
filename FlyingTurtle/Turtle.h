@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Turtle : UIView
+@interface Turtle : UIImageView
 
 @property (nonatomic) float dx, dy, jump;
 
