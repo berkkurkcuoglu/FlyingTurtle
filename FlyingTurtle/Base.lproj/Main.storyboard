@@ -1,26 +1,120 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sGH-JN-m1d">
+    <device id="retina4_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
+        <scene sceneID="pfk-AA-OIx">
+            <objects>
+                <viewController id="sGH-JN-m1d" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="myY-9x-j6u"/>
+                        <viewControllerLayoutGuide type="bottom" id="e75-zX-hWF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HH4-iI-Gwp">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHZ-4X-v1c">
+                                <rect key="frame" x="296" y="172" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="New Game"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="mar-fD-CkY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HPk-BZ-4W2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-615" y="23"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5QP-dQ-Lpf" customClass="GameView">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rVd-4a-Bdw">
+                                        <rect key="frame" x="571" y="20" width="54" height="41"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBQ-Ub-GTQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="53.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zet-AS-u6p">
+                                                <rect key="frame" x="0.0" y="20.5" width="53.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1n-Tu-d2f">
+                                        <rect key="frame" x="14" y="20" width="34" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Back"/>
+                                        <connections>
+                                            <action selector="backed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XXS-FB-wsa"/>
+                                            <segue destination="sGH-JN-m1d" kind="presentation" id="vDd-k2-l23"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="rVd-4a-Bdw" firstAttribute="top" secondItem="5QP-dQ-Lpf" secondAttribute="top" constant="20" id="4Zw-vq-D7M"/>
+                                    <constraint firstItem="rVd-4a-Bdw" firstAttribute="top" secondItem="5QP-dQ-Lpf" secondAttribute="top" constant="20" id="eVf-ql-T8d"/>
+                                    <constraint firstAttribute="trailing" secondItem="rVd-4a-Bdw" secondAttribute="trailing" constant="42" id="sOD-Az-m1R"/>
+                                    <constraint firstAttribute="trailing" secondItem="rVd-4a-Bdw" secondAttribute="trailing" constant="42" id="zYe-lu-e8l"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="highScoreLabel" destination="oBQ-Ub-GTQ" id="xtW-rj-YH6"/>
+                                    <outlet property="scoreLabel" destination="zet-AS-u6p" id="fpr-Ss-J3G"/>
+                                    <outletCollection property="gestureRecognizers" destination="pOt-PS-Q9V" appends="YES" id="PAT-MZ-wga"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="5QP-dQ-Lpf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Imj-fU-s6C"/>
+                            <constraint firstItem="5QP-dQ-Lpf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="TEq-4d-EQh"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5QP-dQ-Lpf" secondAttribute="bottom" id="bnA-Bs-wUn"/>
+                            <constraint firstAttribute="trailing" secondItem="5QP-dQ-Lpf" secondAttribute="trailing" id="nE2-OB-Zqj"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="gameView" destination="5QP-dQ-Lpf" id="42O-hk-dD6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="pOt-PS-Q9V">
+                    <connections>
+                        <action selector="tapped:" destination="BYZ-38-t0r" id="nKO-DW-hxS"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="25.637181409295355" y="26.399999999999999"/>
         </scene>
     </scenes>
 </document>

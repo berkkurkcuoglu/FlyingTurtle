@@ -15,6 +15,13 @@
 		C0627D091E620DDD00D91F3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0627D071E620DDD00D91F3E /* LaunchScreen.storyboard */; };
 		C0627D141E620DDD00D91F3E /* FlyingTurtleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0627D131E620DDD00D91F3E /* FlyingTurtleTests.m */; };
 		C0627D1F1E620DDD00D91F3E /* FlyingTurtleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0627D1E1E620DDD00D91F3E /* FlyingTurtleUITests.m */; };
+		C0627D2E1E620E8600D91F3E /* Turtle.m in Sources */ = {isa = PBXBuildFile; fileRef = C0627D2D1E620E8600D91F3E /* Turtle.m */; };
+		C0627D311E620EA600D91F3E /* Brick.m in Sources */ = {isa = PBXBuildFile; fileRef = C0627D301E620EA600D91F3E /* Brick.m */; };
+		C0627D341E620EB400D91F3E /* Coin.m in Sources */ = {isa = PBXBuildFile; fileRef = C0627D331E620EB400D91F3E /* Coin.m */; };
+		C0627D371E620ECE00D91F3E /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0627D361E620ECE00D91F3E /* GameView.m */; };
+		C0627D3B1E623E4D00D91F3E /* brick.png in Resources */ = {isa = PBXBuildFile; fileRef = C0627D381E623E4D00D91F3E /* brick.png */; };
+		C0627D3C1E623E4D00D91F3E /* coin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C0627D391E623E4D00D91F3E /* coin.jpg */; };
+		C0627D3D1E623E4D00D91F3E /* turtle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C0627D3A1E623E4D00D91F3E /* turtle.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +58,17 @@
 		C0627D1A1E620DDD00D91F3E /* FlyingTurtleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlyingTurtleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0627D1E1E620DDD00D91F3E /* FlyingTurtleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlyingTurtleUITests.m; sourceTree = "<group>"; };
 		C0627D201E620DDD00D91F3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0627D2C1E620E8600D91F3E /* Turtle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Turtle.h; sourceTree = "<group>"; };
+		C0627D2D1E620E8600D91F3E /* Turtle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Turtle.m; sourceTree = "<group>"; };
+		C0627D2F1E620EA600D91F3E /* Brick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Brick.h; sourceTree = "<group>"; };
+		C0627D301E620EA600D91F3E /* Brick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Brick.m; sourceTree = "<group>"; };
+		C0627D321E620EB400D91F3E /* Coin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coin.h; sourceTree = "<group>"; };
+		C0627D331E620EB400D91F3E /* Coin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coin.m; sourceTree = "<group>"; };
+		C0627D351E620ECE00D91F3E /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
+		C0627D361E620ECE00D91F3E /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameView.m; sourceTree = "<group>"; };
+		C0627D381E623E4D00D91F3E /* brick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick.png; sourceTree = "<group>"; };
+		C0627D391E623E4D00D91F3E /* coin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = coin.jpg; sourceTree = "<group>"; };
+		C0627D3A1E623E4D00D91F3E /* turtle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = turtle.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +119,22 @@
 		C0627CF81E620DDD00D91F3E /* FlyingTurtle */ = {
 			isa = PBXGroup;
 			children = (
+				C0627D381E623E4D00D91F3E /* brick.png */,
+				C0627D391E623E4D00D91F3E /* coin.jpg */,
+				C0627D3A1E623E4D00D91F3E /* turtle.jpg */,
 				C0627CFC1E620DDD00D91F3E /* AppDelegate.h */,
 				C0627CFD1E620DDD00D91F3E /* AppDelegate.m */,
 				C0627CFF1E620DDD00D91F3E /* ViewController.h */,
 				C0627D001E620DDD00D91F3E /* ViewController.m */,
 				C0627D021E620DDD00D91F3E /* Main.storyboard */,
+				C0627D351E620ECE00D91F3E /* GameView.h */,
+				C0627D361E620ECE00D91F3E /* GameView.m */,
+				C0627D2C1E620E8600D91F3E /* Turtle.h */,
+				C0627D2D1E620E8600D91F3E /* Turtle.m */,
+				C0627D2F1E620EA600D91F3E /* Brick.h */,
+				C0627D301E620EA600D91F3E /* Brick.m */,
+				C0627D321E620EB400D91F3E /* Coin.h */,
+				C0627D331E620EB400D91F3E /* Coin.m */,
 				C0627D051E620DDD00D91F3E /* Assets.xcassets */,
 				C0627D071E620DDD00D91F3E /* LaunchScreen.storyboard */,
 				C0627D0A1E620DDD00D91F3E /* Info.plist */,
@@ -250,8 +279,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0627D091E620DDD00D91F3E /* LaunchScreen.storyboard in Resources */,
+				C0627D3D1E623E4D00D91F3E /* turtle.jpg in Resources */,
+				C0627D3C1E623E4D00D91F3E /* coin.jpg in Resources */,
 				C0627D061E620DDD00D91F3E /* Assets.xcassets in Resources */,
 				C0627D041E620DDD00D91F3E /* Main.storyboard in Resources */,
+				C0627D3B1E623E4D00D91F3E /* brick.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,7 +310,11 @@
 			files = (
 				C0627D011E620DDD00D91F3E /* ViewController.m in Sources */,
 				C0627CFE1E620DDD00D91F3E /* AppDelegate.m in Sources */,
+				C0627D341E620EB400D91F3E /* Coin.m in Sources */,
+				C0627D311E620EA600D91F3E /* Brick.m in Sources */,
 				C0627CFB1E620DDD00D91F3E /* main.m in Sources */,
+				C0627D2E1E620E8600D91F3E /* Turtle.m in Sources */,
+				C0627D371E620ECE00D91F3E /* GameView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
