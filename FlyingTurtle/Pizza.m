@@ -1,15 +1,15 @@
 //
-//  Brick.m
+//  Pizza.m
 //  FlyingTurtle
 //
-//  Created by berk on 2/25/17.
+//  Created by berk on 3/3/17.
 //  Copyright © 2017 berk. All rights reserved.
 //
 
-#import "Brick.h"
+#import "Pizza.h"
 
-@implementation Brick
-@synthesize touched;
+@implementation Pizza
+@synthesize collected;
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

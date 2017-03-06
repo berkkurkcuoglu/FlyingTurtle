@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C051A25D1E6A3298000242D6 /* pizza.png in Resources */ = {isa = PBXBuildFile; fileRef = C051A25C1E6A3298000242D6 /* pizza.png */; };
+		C051A2601E6A32C6000242D6 /* Pizza.m in Sources */ = {isa = PBXBuildFile; fileRef = C051A25F1E6A32C6000242D6 /* Pizza.m */; };
+		C051A2661E6A3FBC000242D6 /* brick.png in Resources */ = {isa = PBXBuildFile; fileRef = C051A2631E6A3FBC000242D6 /* brick.png */; };
+		C051A2671E6A3FBC000242D6 /* coin.png in Resources */ = {isa = PBXBuildFile; fileRef = C051A2641E6A3FBC000242D6 /* coin.png */; };
+		C051A2681E6A3FBC000242D6 /* turtle.png in Resources */ = {isa = PBXBuildFile; fileRef = C051A2651E6A3FBC000242D6 /* turtle.png */; };
 		C0627CFB1E620DDD00D91F3E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C0627CFA1E620DDD00D91F3E /* main.m */; };
 		C0627CFE1E620DDD00D91F3E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0627CFD1E620DDD00D91F3E /* AppDelegate.m */; };
 		C0627D011E620DDD00D91F3E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0627D001E620DDD00D91F3E /* ViewController.m */; };
@@ -19,9 +24,10 @@
 		C0627D311E620EA600D91F3E /* Brick.m in Sources */ = {isa = PBXBuildFile; fileRef = C0627D301E620EA600D91F3E /* Brick.m */; };
 		C0627D341E620EB400D91F3E /* Coin.m in Sources */ = {isa = PBXBuildFile; fileRef = C0627D331E620EB400D91F3E /* Coin.m */; };
 		C0627D371E620ECE00D91F3E /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0627D361E620ECE00D91F3E /* GameView.m */; };
-		C0627D3B1E623E4D00D91F3E /* brick.png in Resources */ = {isa = PBXBuildFile; fileRef = C0627D381E623E4D00D91F3E /* brick.png */; };
-		C0627D3C1E623E4D00D91F3E /* coin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C0627D391E623E4D00D91F3E /* coin.jpg */; };
-		C0627D3D1E623E4D00D91F3E /* turtle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C0627D3A1E623E4D00D91F3E /* turtle.jpg */; };
+		C07B29041E6D2D4E00E6D567 /* back1.png in Resources */ = {isa = PBXBuildFile; fileRef = C07B29011E6D2D4E00E6D567 /* back1.png */; };
+		C07B29051E6D2D4E00E6D567 /* back2.png in Resources */ = {isa = PBXBuildFile; fileRef = C07B29021E6D2D4E00E6D567 /* back2.png */; };
+		C07B29061E6D2D4E00E6D567 /* back3.png in Resources */ = {isa = PBXBuildFile; fileRef = C07B29031E6D2D4E00E6D567 /* back3.png */; };
+		C07B290A1E6D316900E6D567 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = C07B29091E6D316900E6D567 /* pause.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +48,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C051A25C1E6A3298000242D6 /* pizza.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pizza.png; sourceTree = "<group>"; };
+		C051A25E1E6A32C6000242D6 /* Pizza.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pizza.h; sourceTree = "<group>"; };
+		C051A25F1E6A32C6000242D6 /* Pizza.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pizza.m; sourceTree = "<group>"; };
+		C051A2631E6A3FBC000242D6 /* brick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick.png; sourceTree = "<group>"; };
+		C051A2641E6A3FBC000242D6 /* coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin.png; sourceTree = "<group>"; };
+		C051A2651E6A3FBC000242D6 /* turtle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = turtle.png; sourceTree = "<group>"; };
 		C0627CF61E620DDD00D91F3E /* FlyingTurtle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyingTurtle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0627CFA1E620DDD00D91F3E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C0627CFC1E620DDD00D91F3E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -66,9 +78,10 @@
 		C0627D331E620EB400D91F3E /* Coin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coin.m; sourceTree = "<group>"; };
 		C0627D351E620ECE00D91F3E /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
 		C0627D361E620ECE00D91F3E /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameView.m; sourceTree = "<group>"; };
-		C0627D381E623E4D00D91F3E /* brick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick.png; sourceTree = "<group>"; };
-		C0627D391E623E4D00D91F3E /* coin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = coin.jpg; sourceTree = "<group>"; };
-		C0627D3A1E623E4D00D91F3E /* turtle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = turtle.jpg; sourceTree = "<group>"; };
+		C07B29011E6D2D4E00E6D567 /* back1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back1.png; sourceTree = "<group>"; };
+		C07B29021E6D2D4E00E6D567 /* back2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back2.png; sourceTree = "<group>"; };
+		C07B29031E6D2D4E00E6D567 /* back3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back3.png; sourceTree = "<group>"; };
+		C07B29091E6D316900E6D567 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,9 +132,14 @@
 		C0627CF81E620DDD00D91F3E /* FlyingTurtle */ = {
 			isa = PBXGroup;
 			children = (
-				C0627D381E623E4D00D91F3E /* brick.png */,
-				C0627D391E623E4D00D91F3E /* coin.jpg */,
-				C0627D3A1E623E4D00D91F3E /* turtle.jpg */,
+				C07B29091E6D316900E6D567 /* pause.png */,
+				C07B29011E6D2D4E00E6D567 /* back1.png */,
+				C07B29021E6D2D4E00E6D567 /* back2.png */,
+				C07B29031E6D2D4E00E6D567 /* back3.png */,
+				C051A2631E6A3FBC000242D6 /* brick.png */,
+				C051A2641E6A3FBC000242D6 /* coin.png */,
+				C051A2651E6A3FBC000242D6 /* turtle.png */,
+				C051A25C1E6A3298000242D6 /* pizza.png */,
 				C0627CFC1E620DDD00D91F3E /* AppDelegate.h */,
 				C0627CFD1E620DDD00D91F3E /* AppDelegate.m */,
 				C0627CFF1E620DDD00D91F3E /* ViewController.h */,
@@ -135,6 +153,8 @@
 				C0627D301E620EA600D91F3E /* Brick.m */,
 				C0627D321E620EB400D91F3E /* Coin.h */,
 				C0627D331E620EB400D91F3E /* Coin.m */,
+				C051A25E1E6A32C6000242D6 /* Pizza.h */,
+				C051A25F1E6A32C6000242D6 /* Pizza.m */,
 				C0627D051E620DDD00D91F3E /* Assets.xcassets */,
 				C0627D071E620DDD00D91F3E /* LaunchScreen.storyboard */,
 				C0627D0A1E620DDD00D91F3E /* Info.plist */,
@@ -278,12 +298,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C07B29051E6D2D4E00E6D567 /* back2.png in Resources */,
 				C0627D091E620DDD00D91F3E /* LaunchScreen.storyboard in Resources */,
-				C0627D3D1E623E4D00D91F3E /* turtle.jpg in Resources */,
-				C0627D3C1E623E4D00D91F3E /* coin.jpg in Resources */,
+				C07B29061E6D2D4E00E6D567 /* back3.png in Resources */,
+				C051A25D1E6A3298000242D6 /* pizza.png in Resources */,
+				C07B290A1E6D316900E6D567 /* pause.png in Resources */,
+				C051A2681E6A3FBC000242D6 /* turtle.png in Resources */,
+				C051A2671E6A3FBC000242D6 /* coin.png in Resources */,
 				C0627D061E620DDD00D91F3E /* Assets.xcassets in Resources */,
 				C0627D041E620DDD00D91F3E /* Main.storyboard in Resources */,
-				C0627D3B1E623E4D00D91F3E /* brick.png in Resources */,
+				C07B29041E6D2D4E00E6D567 /* back1.png in Resources */,
+				C051A2661E6A3FBC000242D6 /* brick.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C051A2601E6A32C6000242D6 /* Pizza.m in Sources */,
 				C0627D011E620DDD00D91F3E /* ViewController.m in Sources */,
 				C0627CFE1E620DDD00D91F3E /* AppDelegate.m in Sources */,
 				C0627D341E620EB400D91F3E /* Coin.m in Sources */,
@@ -552,6 +578,7 @@
 				C0627D251E620DDD00D91F3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0627D261E620DDD00D91F3E /* Build configuration list for PBXNativeTarget "FlyingTurtleTests" */ = {
 			isa = XCConfigurationList;
@@ -560,6 +587,7 @@
 				C0627D281E620DDD00D91F3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0627D291E620DDD00D91F3E /* Build configuration list for PBXNativeTarget "FlyingTurtleUITests" */ = {
 			isa = XCConfigurationList;
@@ -568,6 +596,7 @@
 				C0627D2B1E620DDD00D91F3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -10,7 +10,7 @@
 
 @implementation GameView
 
-@synthesize turtle,bricks;
+@synthesize turtle,bricks,coins,pizza;
 @synthesize delegate;
 //@synthesize tilt;
 /*
@@ -23,26 +23,30 @@
 -(id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
-    //counter = 0;
+    _livesLabel.adjustsFontSizeToFitWidth = YES;
+    _livesLabel.minimumScaleFactor = 0.4;
     _scoreLabel.adjustsFontSizeToFitWidth = YES;
     _scoreLabel.minimumScaleFactor = 0.4;
     _highScoreLabel.adjustsFontSizeToFitWidth = YES;
     _highScoreLabel.minimumScaleFactor = 0.4;
     [_highScoreLabel setText:[NSString stringWithFormat:@"Best: %ld",_highScore]];
-    [self updateScore];
-    [self setBackgroundColor:[UIColor purpleColor]];
+    [self updateScore];   
+    //[self setBackgroundColor:[UIColor purpleColor]];
+    _backgroundImages = [NSArray arrayWithObjects:[UIImage imageNamed:@"back1.png"],[UIImage imageNamed:@"back2.png"],[UIImage imageNamed:@"back3.png"], nil];
+    [self setImage:[_backgroundImages objectAtIndex:0]];
+    _backgroundIndex = 0;
     if (self)
     {
         CGRect bounds = [self bounds];
-        turtle = [[Turtle alloc] initWithFrame:CGRectMake(50, bounds.size.height/2, 30 , 30)];        
-        [turtle setImage:[UIImage imageNamed:@"turtle.jpg"]];
-        [turtle setDy:2];
+        turtle = [[Turtle alloc] initWithFrame:CGRectMake(50, bounds.size.height/2, 40 , 40)];
+        [turtle setImage:[UIImage imageNamed:@"turtle.png"]];
         [self addSubview:turtle];
+        [turtle setDy:1.6];
         [turtle setDx:2];
         [turtle setJump:0];
+        [turtle setLives:1];
         [self setup];
-        //[self protectBricks];
-    }
+    }    
     return self;
 }
 
@@ -63,32 +67,79 @@
          [brick removeFromSuperview];
     }
     bricks = [[NSMutableArray alloc] init];
-    for(int i =0; i < 2; i++){
-    Brick *b = [[Brick alloc] initWithFrame:CGRectMake(0, 0, 20,(int)(bounds.size.width * .25))];
+    for(int i =0; i < 3; i++){
+    Brick *b = [[Brick alloc] initWithFrame:CGRectMake(0, 0, (int)(bounds.size.width * .05),(int)(bounds.size.height * .25))];
     [b setImage:[UIImage imageNamed:@"brick.png"]];
     [self addSubview:b];
-    [b setCenter:CGPointMake((rand() % (int)(bounds.size.width * .5)+(bounds.size.width * .3)), rand() % (int)(bounds.size.height * .65))];
-    //while([self isOverlapping:b])
-       // [b setCenter:CGPointMake(rand() % (int)(bounds.size.width * .85), rand() % (int)(bounds.size.height * .65))];
+    [b setTouched:false];
+    [b setCenter:CGPointMake((rand() % (int)(bounds.size.width * .5)+(bounds.size.width * .3)), rand() % (int)(bounds.size.height - b.frame.size.height) + b.frame.size.height/2)];
+    while([self brickIsOverlapping:b])
+        [b setCenter:CGPointMake((rand() % (int)(bounds.size.width * .5)+(bounds.size.width * .3)), rand() % (int)(bounds.size.height - b.frame.size.height) + b.frame.size.height/2)];
     [bricks addObject:b];
 
     }
-    for (int i=0; i < [_coins count]; i++)
+    for (int i=0; i < [coins count]; i++)
     {
-        Coin *coin = [_coins objectAtIndex:i];
+        Coin *coin = [coins objectAtIndex:i];
         [coin removeFromSuperview];
     }
-    _coins = [[NSMutableArray alloc] init];
+    coins = [[NSMutableArray alloc] init];
     for(int i =0; i < 5; i++){
         Coin *c = [[Coin alloc] initWithFrame:CGRectMake(0, 0,20, 20)];
-        [c setImage:[UIImage imageNamed:@"coin.jpg"]];
+        [c setImage:[UIImage imageNamed:@"coin.png"]];
         [self addSubview:c];
-        [c setCenter:CGPointMake(rand() % (int)(bounds.size.width), rand() % (int)(bounds.size.height))];
-        //while([self isOverlapping:b])
-        // [b setCenter:CGPointMake(rand() % (int)(bounds.size.width * .85), rand() % (int)(bounds.size.height * .65))];
-        [_coins addObject:c];
+        [c setCollected:false];
+        [c setCenter:CGPointMake(rand() % (int)(bounds.size.width-c.frame.size.width) + c.frame.size.width/2, rand() % (int)(bounds.size.height-c.frame.size.height) + c.frame.size.height/2)];
+        while([self coinIsOverlapping:c])
+         [c setCenter:CGPointMake(rand() % (int)(bounds.size.width-c.frame.size.width) + c.frame.size.width/2, rand() % (int)(bounds.size.height-c.frame.size.height) + c.frame.size.height/2)];
+        [coins addObject:c];
         
     }
+    
+    if([turtle lives] == 1 && _currentScore % 400 == 0){
+        [pizza removeFromSuperview];
+        pizza = [[Pizza alloc] initWithFrame:CGRectMake(0, 0,20, 20)];
+        [pizza setImage:[UIImage imageNamed:@"pizza.png"]];
+        [self addSubview:pizza];
+        [pizza setCenter:CGPointMake(rand() % (int)(bounds.size.width-pizza.frame.size.width) + pizza.frame.size.width/2, rand() % (int)(bounds.size.height-pizza.frame.size.height) + pizza.frame.size.height/2)];
+        [pizza setCollected:false];
+    }
+}
+
+-(BOOL)brickIsOverlapping:(Brick*) brick{
+    CGRect theFrame = [brick frame];
+    for (int i=0; i < [bricks count]; i++){
+        Brick *otherBrick = [bricks objectAtIndex:i];
+        CGRect otherFrame = [otherBrick frame];
+        if(brick != otherBrick && CGRectIntersectsRect(theFrame, otherFrame))
+            return true;
+    }
+    for (int i=0; i < [coins count]; i++){
+        Coin *otherCoin = [coins objectAtIndex:i];
+        CGRect otherFrame = [otherCoin frame];
+        if(CGRectIntersectsRect(theFrame, otherFrame))
+            return true;
+    }
+    return false;
+}
+
+-(BOOL)coinIsOverlapping:(Coin*) coin{
+    CGRect theFrame = [coin frame];
+    
+    for (int i=0; i < [coins count]; i++){
+        Coin *otherCoin = [coins objectAtIndex:i];
+        CGRect otherFrame = [otherCoin frame];
+        if(coin != otherCoin && CGRectIntersectsRect(theFrame, otherFrame))
+            return true;
+    }
+    
+    for (int i=0; i < [bricks count]; i++){
+        Brick *otherBrick = [bricks objectAtIndex:i];
+        CGRect otherFrame = [otherBrick frame];
+        if(CGRectIntersectsRect(theFrame, otherFrame))
+            return true;
+    }
+    return false;
 }
 
 -(void)play:(CADisplayLink *)sender{
@@ -105,6 +156,8 @@
     if(p.x + f.size.width/2 > [self bounds].size.width){
         p.x -=  [self bounds].size.width;
         [self setup];
+        _backgroundIndex = (_backgroundIndex+1) % 3;
+        [self setImage:[_backgroundImages objectAtIndex:_backgroundIndex]];
         _currentScore += 100;
     }
     
@@ -115,9 +168,9 @@
         p.y = f.size.height/2;
     }
     
-    for (int i=0; i < [_coins count]; i++)
+    for (int i=0; i < [coins count]; i++)
     {
-        Coin *coin =[_coins objectAtIndex:i];
+        Coin *coin =[coins objectAtIndex:i];
         CGRect cr = [coin frame];
         if (CGRectIntersectsRect(cr, f) && ![coin collected])
         {
@@ -129,21 +182,34 @@
 
     for (int i=0; i < [bricks count]; i++)
     {
-        CGRect b = [[bricks objectAtIndex:i] frame];
-        if (CGRectIntersectsRect(b, f))
+        Brick *brick =[bricks objectAtIndex:i];
+        CGRect b = [brick frame];
+        if (CGRectIntersectsRect(b, f) && ![brick touched] && _counter < 0)
         {
-            CGRect bounds = [self bounds];
-            UILabel *gameOver = [[UILabel alloc]initWithFrame:CGRectMake(bounds.size.width/2, bounds.size.height/2, 200, 100)];
-            [gameOver setTextColor:[UIColor whiteColor]];
-            gameOver.text = @"GG WP";
-            [self addSubview:gameOver];
-            [delegate gameOver];
-            [sender invalidate];
+            if([turtle lives] <= 1){
+                [delegate gameOver];
+                [sender invalidate];
+            }
+            else{
+                [turtle setLives:[turtle lives]-1];
+                [_livesLabel setText:[NSString stringWithFormat:@"Lives: %d",[turtle lives]]];
+                _counter = 60;
+            }
         }
     }
+    
+    if (CGRectIntersectsRect([pizza frame], f) && ![pizza collected])
+    {
+        [pizza setCollected:true];
+        [pizza removeFromSuperview];
+        [turtle setLives:[turtle lives]+1];
+        [_livesLabel setText:[NSString stringWithFormat:@"Lives: %d",[turtle lives]]];
+    }
+
 
     [turtle setCenter:p];
     [self updateScore];
+    _counter--;
 }
 
 @end

@@ -9,7 +9,7 @@
 #import "Turtle.h"
 
 @implementation Turtle
-@synthesize dx,dy,jump;
+@synthesize dx,dy,jump,lives;
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

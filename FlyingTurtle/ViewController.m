@@ -24,6 +24,9 @@
     _displayLink = [CADisplayLink displayLinkWithTarget:_gameView selector:@selector(play:)];
     [_displayLink setPreferredFramesPerSecond:60];
     [_displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+    
+    UIImage *btnImage = [UIImage imageNamed:@"pause.png"];
+    [_pauseButton setImage:btnImage forState:UIControlStateNormal];
 }
 
 
@@ -40,9 +43,56 @@
     [self.displayLink invalidate];
 }
 
+- (IBAction)pause:(id)sender {
+    self.displayLink.paused = YES;
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Paused"
+                                  message:[NSString stringWithFormat:@""]
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* resume = [UIAlertAction
+                             actionWithTitle:@"Resume"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 self.displayLink.paused = NO;
+                                 [alert dismissViewControllerAnimated:YES completion:nil];
+                             }];
+    
+    UIAlertAction* menu = [UIAlertAction
+                         actionWithTitle:@"Main Menu"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             [self performSegueWithIdentifier:@"menuSegue" sender:nil];
+                             [alert dismissViewControllerAnimated:YES completion:nil];
+                         }];
+
+    [alert addAction:menu];
+    [alert addAction:resume];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 -(void)gameOver
 {
-    NSLog(@"Game over");    
+    //NSLog(@"Game over");
+    UIAlertController * alert=   [UIAlertController
+                                  alertControllerWithTitle:@"Game Over!!!"
+                                  message:[NSString stringWithFormat:@"High Score: %lu \n\nYour Score: %lu",[_gameView highScore],[_gameView currentScore]]
+                                  preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* ok = [UIAlertAction
+                         actionWithTitle:@"OK"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             [self performSegueWithIdentifier:@"menuSegue" sender:nil];
+                             [alert dismissViewControllerAnimated:YES completion:nil];
+                         }];
+    
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
+
 }
 
 @end

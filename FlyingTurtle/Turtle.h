@@ -11,5 +11,6 @@
 @interface Turtle : UIImageView
 
 @property (nonatomic) float dx, dy, jump;
+@property (nonatomic) int lives;
 
 @end
