@@ -30,8 +30,7 @@
     _highScoreLabel.adjustsFontSizeToFitWidth = YES;
     _highScoreLabel.minimumScaleFactor = 0.4;
     [_highScoreLabel setText:[NSString stringWithFormat:@"Best: %ld",_highScore]];
-    [self updateScore];   
-    //[self setBackgroundColor:[UIColor purpleColor]];
+    [self updateScore];
     _backgroundImages = [NSArray arrayWithObjects:[UIImage imageNamed:@"back1.png"],[UIImage imageNamed:@"back2.png"],[UIImage imageNamed:@"back3.png"], nil];
     [self setImage:[_backgroundImages objectAtIndex:0]];
     _backgroundIndex = 0;
@@ -44,7 +43,7 @@
         [turtle setDy:1.6];
         [turtle setDx:2];
         [turtle setJump:0];
-        [turtle setLives:1];
+        [turtle setLives:3];
         [self setup];
     }    
     return self;
@@ -96,7 +95,7 @@
         
     }
     
-    if([turtle lives] == 1 && _currentScore % 400 == 0){
+    if(_currentScore % 400 == 0){
         [pizza removeFromSuperview];
         pizza = [[Pizza alloc] initWithFrame:CGRectMake(0, 0,20, 20)];
         [pizza setImage:[UIImage imageNamed:@"pizza.png"]];
@@ -120,6 +119,9 @@
         if(CGRectIntersectsRect(theFrame, otherFrame))
             return true;
     }
+    if(CGRectIntersectsRect(theFrame, [pizza frame]))
+        return true;
+    
     return false;
 }
 
@@ -139,6 +141,9 @@
         if(CGRectIntersectsRect(theFrame, otherFrame))
             return true;
     }
+    if(CGRectIntersectsRect(theFrame, [pizza frame]))
+        return true;
+    
     return false;
 }
 
