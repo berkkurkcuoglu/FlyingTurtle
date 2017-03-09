@@ -110,7 +110,7 @@
     for (int i=0; i < [bricks count]; i++){
         Brick *otherBrick = [bricks objectAtIndex:i];
         CGRect otherFrame = [otherBrick frame];
-        if(brick != otherBrick && CGRectIntersectsRect(theFrame, otherFrame))
+        if(brick != otherBrick && (CGRectIntersectsRect(theFrame, otherFrame) || (fabs(brick.center.x-otherBrick.center.x) < (turtle.frame.size.width*1.6+theFrame.size.width) && fabs(brick.center.y-otherBrick.center.y) < (turtle.frame.size.height*2+theFrame.size.height))))
             return true;
     }
     for (int i=0; i < [coins count]; i++){
@@ -157,6 +157,7 @@
     [turtle setJump:0];
     //[turtle setDy:[turtle dy] - .3];
     p.y += [turtle dy];
+    CGRect fakeFrame = CGRectMake(turtle.center.x-f.size.width/2, turtle.center.y-f.size.height/2, turtle.frame.size.width-12, turtle.frame.size.height-12);
     
     if(p.x + f.size.width/2 > [self bounds].size.width){
         p.x -=  [self bounds].size.width;
@@ -189,7 +190,7 @@
     {
         Brick *brick =[bricks objectAtIndex:i];
         CGRect b = [brick frame];
-        if (CGRectIntersectsRect(b, f) && ![brick touched] && _counter < 0)
+        if (CGRectIntersectsRect(b, fakeFrame) && ![brick touched] && _counter < 0)
         {
             if([turtle lives] <= 1){
                 [delegate gameOver];
