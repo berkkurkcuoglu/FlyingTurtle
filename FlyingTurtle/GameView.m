@@ -72,7 +72,8 @@
     [self addSubview:b];
     [b setTouched:false];
     [b setCenter:CGPointMake((rand() % (int)(bounds.size.width * .5)+(bounds.size.width * .3)), rand() % (int)(bounds.size.height - b.frame.size.height) + b.frame.size.height/2)];
-    while([self brickIsOverlapping:b])
+        int tries = 10;
+    while([self brickIsOverlapping:b] || --tries > 0)
         [b setCenter:CGPointMake((rand() % (int)(bounds.size.width * .5)+(bounds.size.width * .3)), rand() % (int)(bounds.size.height - b.frame.size.height) + b.frame.size.height/2)];
     [bricks addObject:b];
 
